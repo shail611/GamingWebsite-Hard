@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+<link rel="stylesheet" href="p10home.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+  <script>
+    var myModule = angular.module("myApp", []);
+    
+    myModule.controller("cont",['$scope','$timeout', function($scope,$timeout){
+    
+    
+    $scope.seconds = 35;
+    $scope.minutes = 26;
+    $scope.hours = 02;
+    var stopped;
+    var stop2;
+    
+    $scope.countdown = function() {
+       stopped = $timeout(function() {
+          console.log($scope.seconds);
+        $scope.seconds--;
+        $scope.countdown();
+      }, 1000);
+    
+       if($scope.seconds==0){
+         $scope.seconds=60;
+         $scope.minutes--;
+       }
+       if($scope.minutes==0){
+         $scope.minutes=60;
+         $scope.hours--;
+       }
+    
+      
+    
+     };
+    
+    }]);
+
+
+    
+    </script>
+    <script>
+        function showMore(){
+            document.getElementById('hide1').style.display='';
+            document.getElementById('hide2').style.display='';
+            document.getElementById('hide3').style.display='';
+            document.getElementById('hide4').style.display='';
+            document.getElementById('button').style.display='none';
+        }
+    </script>
+    
+<body ng-app="myApp" ng-controller="cont" ng-init="countdown()" >
+  <header class="header-section">
+    <div class="container">
+      <span onclick="location.replace('p10home.html')" style="color: white;font-size: 50px;">Game Kings
+    </span>
+    
+    
+    <div class="main-menu" >
+    <ul>
+    <li><a href="p10home.html">Home</a></li>
+    <li><a href="p10games.html">Games</a></li>
+    <li><a href="p10form.html">Forums</a></li>
+    <li><a href="p10us.html">About Us</a></li>
+    <li><a href="p10contacts.html">Contact</a></li>
+    <div class="user-panel">
+      <a href="#">Login</a> / <a href="#">Register</a>
+    </div>
+    </ul>
+    
+  </div>
+    </div>
+    </header>
+    <div>
+        <img src="p10Pics/hbig5.jpg" style="width:100%;" alt="">
+        <span class="containerTitle">What our <span style="color:#ffb320">Friends</span> have for Us</span>
+        <span class="titleInfo">You will find all the games you are looking for. You can also try and purchase games at the cheapest prices. <br>You can also try demos for few.</span>
+    </div>
+    
+    
+
+
+    <div style="background-image:url(p10Pics/back2back.jfif);position: relative;" ng-app="">
+        <header style="text-align: center;font-size:300%;color: rgb(221, 228, 210);padding-top: 3%;" ng-init="fr='Future releases'">
+          {{fr|uppercase}}
+        </header>
+        <img style="width: 99%;" src="p10Pics/back2.png" alt="">
+
+        <div class="newGames" style="position: absolute;top:10%;left: 5%;overflow: hidden;background-color: transparent;">
+            
+           <img src="p10Pics/new1.jfif" height="80%" width="100%" alt="">
+           <div style="font-size: 25px;text-align: center;">Assassin's Creed</div>
+           
+           
+       </div>
+       <div class="newGames" style="position: absolute;top:10%;left: 22%;overflow: hidden;background-color: transparent;">
+            
+        <img src="p10Pics/new2.png" height="80%" width="100%" alt="">
+        <div style="font-size: 25px;text-align: center;">Half-Life</div>
+
+        
+    </div>
+
+    <div class="newGames" style="position: absolute;top:10%;left: 39%;overflow: hidden;background-color: transparent;">
+            
+        <img src="p10Pics/new3.jpg" height="80%" width="100%" alt="">
+        <div style="font-size: 25px;text-align: center;">PUBG</div>
+
+        
+    </div>
+
+    <div class="newGames" style="position: absolute;top:50%;left: 5%;overflow: hidden;background-color: transparent;">
+            
+        <img src="p10Pics/new4.png" height="80%" width="100%" alt="">
+        <div style="font-size: 25px;text-align: center;">Assassin's Creed</div>
+        
+        
+    </div>
+    <div class="newGames" style="position: absolute;top:50%;left: 22%;overflow: hidden;background-color: transparent;">
+         
+     <img src="p10Pics/new5.jpg" height="80%" width="100%" alt="">
+     <div style="font-size: 25px;text-align: center;">Doom</div>
+
+     
+ </div>
+
+ <div class="newGames" style="position: absolute;top:50%;left: 39%;overflow: hidden;background-color: transparent;">
+         
+     <img src="p10Pics/new6.jpg" height="80%" width="100%" alt="">
+     <div style="font-size: 25px;text-align: center;">Spiderman</div>
+
+     
+ </div>
+       
+
+    <footer > <br>
+      Copyright (c) 2021 All Rights Reserved <br> Time remaining for a new game to launch <br>
+      <span style="font-size: 30px;color: white;">{{hours}} : {{minutes}} : {{seconds}} </span><br><br><br>Prepared by Shail Shah
+    </footer>
+
+</body>
+</html>

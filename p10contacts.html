@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+<link rel="stylesheet" href="p10home.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+  <script>
+    var myModule = angular.module("myApp", []);
+    
+    myModule.controller("cont",['$scope','$timeout', function($scope,$timeout){
+    
+    
+    $scope.seconds = 60;
+    $scope.minutes = 26;
+    $scope.hours = 02;
+    var stopped;
+    var stop2;
+    
+    $scope.countdown = function() {
+       stopped = $timeout(function() {
+          console.log($scope.seconds);
+        $scope.seconds--;
+        $scope.countdown();
+      }, 1000);
+    
+       if($scope.seconds==0){
+         $scope.seconds=60;
+         $scope.minutes--;
+       }
+       if($scope.minutes==0){
+         $scope.minutes=60;
+         $scope.hours--;
+       }
+    
+      
+    
+     };
+    
+    }]);
+
+
+    
+    </script>
+    
+<body ng-app="myApp" ng-controller="cont" ng-init="countdown()" >
+  <header class="header-section">
+    <div class="container">
+      <span onclick="location.replace('p10home.html')" style="color: white;font-size: 50px;">Game Kings</span>
+    
+    
+    <div class="main-menu" >
+    <ul>
+    <li><a href="p10home.html">Home</a></li>
+    <li><a href="p10games.html">Games</a></li>
+    <li><a href="p10form.html">Forums</a></li>
+    <li><a href="p10us.html">About Us</a></li>
+    <li><a href="p10contacts.html">Contact</a></li>
+    <div class="user-panel">
+      <a href="#">Login</a> / <a href="#">Register</a>
+    </div>
+    </ul>
+    
+  </div>
+    </div>
+    </header>
+
+    <div>
+      <img src="p10Pics/hbig3.gif" style="width:100%;" alt="">
+      <span class="containerTitle">Join our <span style="color:#ffb320">Community</span> </span>
+      <span class="titleInfo">Join our small community and get all the latest updates regarding games from old to new,<br>
+    from the most cheapest to most expensive, from most hated to most loved and from most entertaining to most dead serious.</span>
+    </div><br>
+    <div style="align-items:center">
+        <header><span style="font-weight: bold;font-size: 250%;margin-left: 45%;">Meet us</span></header>
+    <div class="map">
+        <img style="margin-left:20% " width="60%" height="60%"  src="p10Pics/maps.PNG" alt="">
+    </div>
+</div>
+    
+   <div style="padding: 3%;height:5%; width:90%" >
+    <div style="width: 40%;display: inline-block;margin-left: 5%;">
+        <div class="contact">
+            <span style="font-weight: bold;font-size: 150%;">Contact us</span><br><br>
+            <div>Thank you for visiting the website. If you have any comments, complaints, appreciations or hate, please write it to us so that we can improve upon that.</div>
+        </div>
+        <br><br><br>
+
+    <table>
+        <tr>
+            <td style="padding: 5%;width: 25%;"> 
+                <span style="color:#ffb320;font-weight:bold;">Address:</span>
+            </td>
+            <td style="padding: 5%;">Nirma University, Ahmedabad-Gandhinagar Highway, Ahmedabad, Gujarat, India</td>
+        </tr>
+
+        <tr>
+            <td style="padding: 5%;">
+                <span style="color:#ffb320;font-weight:bold">Ph:</span>
+            </td>
+            <td style="padding: 5%;">
+                +91 6359649777
+            </td>
+        </tr>
+
+        <tr>
+            <td style="padding: 5%;">
+                <span style="color:#ffb320;font-weight:bold">E-mail:</span>
+            </td>
+            <td style="padding: 5%;">
+                19bce232@nirmauni.ac.in
+            </td>
+        </tr>
+    </table>
+    </div>
+
+
+    <div style="width: 45%;display: inline-block;margin-left: 5%;height: 500px;position: absolute;">
+        <div  >
+            <span style="font-weight: bold;font-size: 150%;">Leave a reply</span><br><br>
+            <div>You can reply your words here.</div>
+        </div>
+        <br><br><br>
+        <form>
+        <div style="position: absolute;">
+            <input style="height: 20px; width: 45%;margin-right: 5%;margin-bottom: 5%;" type="text" name="" id="n" placeholder="Name" required>
+            <input style="height: 20px; width: 45%;" type="email" name="" id="m" placeholder="Mail" required>
+            <input style="height: 20px; width: 45%;margin-right: 5%;margin-bottom: 5%;" type="number" name="" id="p" placeholder="Phone no">
+            <input style="height: 20px; width: 45%;" type="number" name="" id="a" placeholder="Age" required>
+            <input style="height: 20px; width: 97%;margin-bottom: 5%;" type="text" name="" id="s" placeholder="Subject"> 
+            <textarea style="height: 100px; width: 97%;"  name="" id="mess" placeholder="Message"></textarea>
+            <span class="titleRead" style="top: 120%;left: 1%;width: 15%;"><button style="background-color: transparent;border: none;margin-left: 25%;font-size: medium;" onclick="check()">Send</button></span>
+        </div>
+        </form>
+        
+    </div>
+    
+</div>
+
+
+  <br><br><br>
+    <footer>
+      Copyright (c) 2021 All Rights Reserved <br> Time remaining for a new game to launch <br>
+      <span style="font-size: 30px;color: white;">{{hours}} : {{minutes}} : {{seconds}} </span><br>
+      Contact: 19BCE232@nirmauni.ac.in
+      <br><br>Prepared by Shail Shah
+    </footer>
+
+</body>
+<script>
+    function check(){
+        if(document.getElementById('n').value==""||document.getElementById('m').value==""||document.getElementById('a').value==""||document.getElementById('s').value==""||document.getElementById('mess').value=="")
+        {
+            alert("Please fill all details");
+        }
+        else if(document.getElementById('p').value>9999999999 || document.getElementById('p').value<1000000000){
+            alert("Incorrect phone number");
+        }
+        else{
+            alert("Thank you for your Reply");
+            location.replace("p10home.html");
+        }
+        
+    }
+</script>
+</html>

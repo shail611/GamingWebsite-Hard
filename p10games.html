@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+<link rel="stylesheet" href="p10home.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+  <script>
+    var myModule = angular.module("myApp", []);
+    
+    myModule.controller("cont",['$scope','$timeout', function($scope,$timeout){
+    
+    
+    $scope.seconds = 35;
+    $scope.minutes = 26;
+    $scope.hours = 02;
+    var stopped;
+    var stop2;
+    
+    $scope.countdown = function() {
+       stopped = $timeout(function() {
+          console.log($scope.seconds);
+        $scope.seconds--;
+        $scope.countdown();
+      }, 1000);
+    
+       if($scope.seconds==0){
+         $scope.seconds=60;
+         $scope.minutes--;
+       }
+       if($scope.minutes==0){
+         $scope.minutes=60;
+         $scope.hours--;
+       }
+    
+      
+    
+     };
+    
+    }]);
+
+
+    
+    </script>
+    <script>
+        function showMore(){
+            document.getElementById('hide1').style.display='';
+            document.getElementById('hide2').style.display='';
+            document.getElementById('hide3').style.display='';
+            document.getElementById('hide4').style.display='';
+            document.getElementById('button').style.display='none';
+        }
+    </script>
+    
+<body ng-app="myApp" ng-controller="cont" ng-init="countdown()" >
+  <header class="header-section">
+    <div class="container">
+      <span onclick="location.replace('p10home.html')" style="color: white;font-size: 50px;">Game Kings
+    </span>
+    
+    
+    <div class="main-menu" >
+    <ul>
+    <li><a href="p10home.html">Home</a></li>
+    <li><a href="p10games.html">Games</a></li>
+    <li><a href="p10form.html">Forums</a></li>
+    <li><a href="p10us.html">About Us</a></li>
+    <li><a href="p10contacts.html">Contact</a></li>
+    <div class="user-panel">
+      <a href="#">Login</a> / <a href="#">Register</a>
+    </div>
+    </ul>
+    
+  </div>
+    </div>
+    </header>
+    <div>
+        <img src="p10Pics/hbig2.jpg" style="width:100%;" alt="">
+        <span class="containerTitle">The Best <span style="color:#ffb320">Games</span> Out There</span>
+        <span class="titleInfo">You will find all the games you are looking for. You can also try and purchase games at the cheapest prices. <br>You can also try demos for few.</span>
+    </div>
+    
+    <div style="padding: 4%;">
+        <div class="allgimg"  > 
+            <img height="100%" width="100%" src="p10Pics/games1.jpg" alt="">
+            <div style="text-align: center;color:#24221d;font-size:25px;font-weight: bold;" ng-init="g='grand theft auto'">
+                {{g|uppercase}} <br>
+                <img src="p10Pics/4star.png" height="15%" width="15%" alt=""> <br>
+            </div>
+            <div>
+                Grand Theft Auto is a series of action-adventure games created by David Jones and Mike Dailly.
+                Later titles were developed under the oversight of brothers Dan and Sam Houser, Leslie Benzies and Aaron Garbut.
+            </div> <br>
+            <div ng-init="p=1234.99">Price: {{p|currency}} <br> Size: 10 GB</div>
+
+            <div class="user-panel" onclick="location.replace('p10games.html')" style="margin-left:27%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Play demo
+              </div>
+              <div class="user-panel" onclick="location.replace('p10pay.html?name=GTA 5&price=1234.99')" style="margin-left:3%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Get game
+              </div>
+              
+        </div>
+        <div class="allgimg" > 
+            <img height="100%" width="100%" src="p10Pics/game2.jpg" alt="">
+            <div style="text-align: center;color:#24221d;font-size:25px;font-weight: bold;" ng-init="f='fortnite'">
+                {{f|uppercase}} <br>
+                <img src="p10Pics/4.5star.png" height="20%" width="20%" alt="">
+            </div>
+            <div>
+                Fortnite is a survival game where 100 players fight against each other in player versus player combat to be the last one standing. 
+                It is a fast-paced, action-packed game, not unlike The Hunger Games, where strategic thinking is a must in order to survive.            
+            </div> <br>
+            <div ng-init="p2=177.99">Price: {{p2|currency}} <br> Size: 15 GB</div>
+
+            <div class="user-panel" onclick="location.replace('p10games.html')" style="margin-left:27%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Play demo
+              </div>
+              <div class="user-panel" onclick="location.replace('p10pay.html?name=Fortnite&price=177.99')" style="margin-left:3%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Get game
+              </div>
+        </div>
+        
+
+        <div class="allgimg" > 
+            <img height="100%" width="100%" src="p10Pics/game3.jpg" alt="">
+            <div style="text-align: center;color:#24221d;font-size:25px;font-weight: bold;" ng-init="a='among us'">
+                {{a|uppercase}} <br>
+                <img src="p10Pics/4.5star.png" height="20%" width="20%" alt="">
+    
+            </div>
+            <div>
+                Among Us is basically a game of survival, where you either have to vote off all of the imposters and complete all the tasks, and the imposter has to kill all of the crewmates or stop them from completing the designated tasks to win.
+                 If you are designated a crewmate your task is to find the imposter.
+            </div>
+            <br>
+            <div>Price: $18.99 <br> Size: 5 GB</div>
+
+            <div class="user-panel" onclick="location.replace('p10games.html')" style="margin-left:27%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Play demo
+              </div>
+              <div class="user-panel" onclick="location.replace('p10pay.html?name=Among Us&price=18.99')" style="margin-left:3%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Get game
+              </div>
+        </div>
+
+        <div class="allgimg" > 
+            <img height="100%" width="100%" src="p10Pics/game4.jpg" alt="">
+            <div style="text-align: center;color:#24221d;font-size:25px;font-weight: bold;" ng-init="d='dota 2'">
+                {{d|uppercase}} <br>
+                <img src="p10Pics/4.5star.png" height="20%" width="20%" alt="">
+
+            </div>
+            <div>
+                Goal is to destroy the other team's base. But before you can do that you have to get your character.
+                 Leveled up quite a bit earn some money. Buy some items get powerful.
+            </div>
+            <br>
+            <div>Price: $10.99 <br> Size: 11 GB</div>
+
+            <div class="user-panel" onclick="location.replace('p10games.html')" style="margin-left:27%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Play demo
+              </div>
+              <div class="user-panel" onclick="location.replace('p10pay.html?name=DOTA 2&price=10.99')" style="margin-left:3%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Get game
+              </div>
+        </div>
+
+        <div class="allgimg" > 
+            <img height="100%" width="100%" src="p10Pics/game5.jpg" alt="">
+            <div style="text-align: center;color:#24221d;font-size:25px;font-weight: bold;" ng-init="se='serum extraction'">
+                {{se|uppercase}} <br>
+                <img src="p10Pics/5star.png" height="20%" width="20%" alt="">
+
+            </div>
+            <div>
+                World is going towards it's end. Flesh-eating Zombies have captured entire civilizations.
+                You have to try your best to survive and extract the only serum present for you before zombies have you.
+            </div>
+            <br>
+            <div>Price: Free <br> Size: 0.25 GB</div>
+
+            <div class="user-panel" onclick="window.open('p10.html','_blank')" style="margin-left:27%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Play demo
+              </div>
+              <div class="user-panel" onclick="location.replace('p10pay.html?name=Serum Extraction&price=Free')" style="margin-left:3%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Get game
+              </div>
+        </div>
+        
+
+        <div class="allgimg" > 
+            <img height="100%" width="100%" src="p10Pics/game6.jpg" alt="">
+            <div style="text-align: center;color:#24221d;font-size:25px;font-weight: bold;" ng-init="cp='cyber punk'">
+                {{cp |uppercase}} <br>
+                <img src="p10Pics/3.5star.png" height="20%" width="20%" alt="">
+
+            </div>
+            <div>
+                Cyberpunk is a subgenre of science fiction in a dystopian futuristic setting that tends to focus on a "combination of lowlife and high tech" featuring advanced technological and scientific achievements
+            </div>
+            <br>
+            <div>Price: $19.99 <br> Size: 15 GB</div>
+
+            <div class="user-panel" onclick="location.replace('p10games.html')" style="margin-left:27%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Play demo
+              </div>
+              <div class="user-panel" onclick="location.replace('p10pay.html?name=CyberPunk&price=19.99')" style="margin-left:3%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Get game
+              </div>
+        </div>
+
+        <div id="hide1" class="allgimg" style="display:none"> 
+            <img height="100%" width="100%" src="p10Pics/game7.jpg" alt="">
+            <div style="text-align: center;color:#24221d;font-size:25px;font-weight: bold;" ng-init="tw='The Witcher 3'">
+                {{tw|uppercase}} <br>
+                <img src="p10Pics/3.5star.png" height="20%" width="20%" alt="">
+
+            </div>
+            <div>
+                The Witcher 3: Wild Hunt is an action role-playing game with a third-person perspective. Players control Geralt of Rivia, a monster slayer known as a Witcher.
+                 Geralt walks, runs, rolls and dodges, and (for the first time in the series) jumps, climbs and swims.
+            </div>
+            <br>
+            <div>Price: $16.99 <br> Size: 50 GB</div>
+
+            <div class="user-panel" onclick="location.replace('p10games.html')" style="margin-left:27%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Play demo
+              </div>
+              <div class="user-panel" onclick="location.replace('p10pay.html?name=The Witcher 3&price=16.99')" style="margin-left:3%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Get game
+              </div>
+        </div>
+        
+
+        <div id="hide2" class="allgimg" style="display:none"> 
+            <img height="100%" width="100%" src="p10Pics/game8.jpg" alt="">
+            <div style="text-align: center;color:#24221d;font-size:25px;font-weight: bold;" ng-init="v='valorant'">
+                {{v |uppercase}} <br>
+                <img src="p10Pics/4star.png" height="20%" width="20%" alt="">
+
+            </div>
+            <div>
+                Valorant is a team-based tactical shooter and first-person shooter set in the near future. 
+                Players play as one of a set of agents, characters designed based on several countries and cultures around the world.
+            </div>
+            <br>
+            <div>Price: $29.99 <br> Size: 70 GB</div>
+
+            <div class="user-panel" onclick="location.replace('p10games.html')" style="margin-left:27%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Play demo
+              </div>
+              <div class="user-panel" onclick="location.replace('p10pay.html?name=Valorant&price=29.99')" style="margin-left:3%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Get game
+              </div>
+        </div>
+
+        <div id="hide3" class="allgimg" style="display:none"> 
+            <img height="100%" width="100%" src="p10Pics/game9.jpg" alt="">
+            <div style="text-align: center;color:#24221d;font-size:25px;font-weight: bold;" ng-init="m='Super mario'">
+                {{m|uppercase}} <br>
+                <img src="p10Pics/4.5star.png" height="20%" width="20%" alt="">
+            </div>
+            <div>
+                In the original Super Mario Bros., solo players pilot Mario, and an additional player can play as Luigi.
+                 The game is based on a series of side-scrolling levels, each filled with enemies ranging from mushroomlike Goombas to evil turtles known as Koopa Troopas.
+            </div>
+            <br>
+            <div>Price: $39.99 <br> Size: 110 GB</div>
+
+            <div class="user-panel" onclick="location.replace('p10games.html')" style="margin-left:27%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Play demo
+              </div>
+              <div class="user-panel" onclick="location.replace('p10pay.html?name=Super Mario&price=39.99')" style="margin-left:3%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Get game
+              </div>
+        </div>
+        
+
+        <div id="hide4" class="allgimg" style="display:none"> 
+            <img height="100%" width="100%" src="p10Pics/game10.jpg" alt="">
+            <div style="text-align: center;color:#24221d;font-size: 25px;font-weight: bold;" ng-init="wd='watch dogs'">
+                {{wd |uppercase}} <br>
+                <img src="p10Pics/4star.png" height="20%" width="20%" alt="">
+
+            </div>
+            <div>
+                Set within a fictionalized version of the Chicagoland area in 2013, the first installment in the series follows gray hat hacker and vigilante Aiden Pearce's quest for revenge after the killing of his niece.
+            </div>
+            <br>
+            <div>Price: $11.99 <br> Size: 17 GB</div>
+
+            <div class="user-panel" onclick="location.replace('p10games.html')" style="margin-left:27%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Play demo
+              </div>
+              <div class="user-panel" onclick="location.replace('p10pay.html?name=Watch Dogs&price=11.99')" style="margin-left:3%;margin-top: 5%;margin-bottom: 5%;background-color:#eca412">
+                Get game
+              </div>
+        </div>
+
+        <div id="button" class="loadMore"><button style="background-color: transparent;border: none;font-size: medium;font-weight:bold ;" onclick="showMore()">Load More</button></div>
+    </div>
+    
+
+
+    <div style="background-image:url(p10Pics/back2back.jfif);position: relative;" ng-app="">
+        <header style="text-align: center;font-size:300%;color: rgb(221, 228, 210);padding-top: 3%;" ng-init="fr='Future releases'">
+          {{fr|uppercase}}
+        </header>
+        <img style="width: 99%;" src="p10Pics/back2.png" alt="">
+
+        <div class="newGames" style="position: absolute;top:10%;left: 5%;overflow: hidden;background-color: transparent;">
+            
+           <img src="p10Pics/new1.jfif" height="80%" width="100%" alt="">
+           <div style="font-size: 25px;text-align: center;">Assassin's Creed</div>
+           
+           
+       </div>
+       <div class="newGames" style="position: absolute;top:10%;left: 22%;overflow: hidden;background-color: transparent;">
+            
+        <img src="p10Pics/new2.png" height="80%" width="100%" alt="">
+        <div style="font-size: 25px;text-align: center;">Half-Life</div>
+
+        
+    </div>
+
+    <div class="newGames" style="position: absolute;top:10%;left: 39%;overflow: hidden;background-color: transparent;">
+            
+        <img src="p10Pics/new3.jpg" height="80%" width="100%" alt="">
+        <div style="font-size: 25px;text-align: center;">PUBG</div>
+
+        
+    </div>
+
+    <div class="newGames" style="position: absolute;top:50%;left: 5%;overflow: hidden;background-color: transparent;">
+            
+        <img src="p10Pics/new4.png" height="80%" width="100%" alt="">
+        <div style="font-size: 25px;text-align: center;">Assassin's Creed</div>
+        
+        
+    </div>
+    <div class="newGames" style="position: absolute;top:50%;left: 22%;overflow: hidden;background-color: transparent;">
+         
+     <img src="p10Pics/new5.jpg" height="80%" width="100%" alt="">
+     <div style="font-size: 25px;text-align: center;">Doom</div>
+
+     
+ </div>
+
+ <div class="newGames" style="position: absolute;top:50%;left: 39%;overflow: hidden;background-color: transparent;">
+         
+     <img src="p10Pics/new6.jpg" height="80%" width="100%" alt="">
+     <div style="font-size: 25px;text-align: center;">Spiderman</div>
+
+     
+ </div>
+       
+
+    <footer > <br>
+      Copyright (c) 2021 All Rights Reserved <br> Time remaining for a new game to launch <br>
+      <span style="font-size: 30px;color: white;">{{hours}} : {{minutes}} : {{seconds}} </span><br><br><br>Prepared by Shail Shah
+    </footer>
+
+</body>
+</html>
